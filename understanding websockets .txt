@@ -1,0 +1,27 @@
+websockets are a two way connection between client and server 
+
+we implement sockets using socket.io 
+(Socket.io is a js library for realtime web apps )
+
+npm init -y 
+npm i socket.io nodemon
+
+****[
+    To connect our client with our server socket we need to add a script to the frontend html head part->
+    <script type="module" src="http://localhost:7000/socket.io/socket.io.js"></script>
+ ]****
+
+create an index.js file and inside it -> 
+1)const io = require("socket.io")(7000)
+2)then we do io.on("our decided event name" , callbackfunction)
+so in short on trigger of this predefined event from front end our io will trigger this call back function 
+example -> io.on("connection" , socket => {
+    //event1- what socket does is that whenever it encounters user-joined event it will set the name to our users 
+    socket.on("user-joined" , name => {
+          user[socket.id] = name;
+    })
+
+    socket.on("send" , message=>{
+        socket.broadcast.emit("receive" , {message:message, name: user[socket.id]})
+    })
+})
