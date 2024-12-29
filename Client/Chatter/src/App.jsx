@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-const socket = io('http://localhost:7000');
+// const socket = io('http://localhost:7000');
+const socket = io('https://chatterfrontend.vercel.app/');
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
