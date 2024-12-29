@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
   cors: {
-    origin: "http://localhost:5174",
+    origin: "https://chatterfrontend.vercel.app/",
     methods: ["GET", "POST"]
   }
 });
