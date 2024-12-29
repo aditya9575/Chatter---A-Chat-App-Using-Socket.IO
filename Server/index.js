@@ -103,6 +103,10 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get("/" , (req,res)=>{
+    return res.send("This is chatter backend")
+})
+
 const PORT = process.env.PORT || 7000;
 http.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
